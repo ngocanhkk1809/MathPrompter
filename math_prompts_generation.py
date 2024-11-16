@@ -73,7 +73,7 @@ Only the Python code is required, without explanations.
 '''
 
 def python_code_generation(question, temperature: float):
-    SERVICE = get_llm_service('openai', 'gpt-3.5-turbo', temperature=temperature, max_tokens=200)
+    SERVICE = get_llm_service('llama', 'llama3.2-1b', temperature=temperature, max_tokens=200)
     messages = SERVICE.create_prompt(system_prompt=PYTHON_SYSTEM_PROMPT, few_shot_examples=PYTHON_FEW_SHOT_PROMPT, question=question)
     response = SERVICE.make_request(messages=messages)
     function_code = response.strip()
