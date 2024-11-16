@@ -1,6 +1,6 @@
 import os
 import requests
-
+from .llm_interface import LLMInterface
 class LLaMAService(LLMInterface):
     def __init__(self, model_name, temperature, max_tokens):
         self.model_name = model_name
