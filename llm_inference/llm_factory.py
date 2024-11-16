@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 
 from .azure_openai_service import AzureOpenAIService
 from .openai_service import OpenAIService
+from .llama_api import LLaMAService
 
 load_dotenv()   # Load the environment variables located in the .env file
 
@@ -25,5 +26,7 @@ def get_llm_service(service_name, model_name, temperature, max_tokens):
         return AzureOpenAIService(model_name, temperature, max_tokens)
     elif service_name == 'openai':
         return OpenAIService(model_name, temperature, max_tokens)
+    elif service_name == 'llama':
+        return LLaMAService(model_name, temperature, max_tokens)
     else:
         raise Exception("Unsupported LLM service type")
