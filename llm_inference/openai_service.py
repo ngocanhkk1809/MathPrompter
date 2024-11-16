@@ -6,7 +6,7 @@ from .llm_interface import LLMInterface
 class OpenAIService(LLMInterface):
     def __init__(self, model_name, temperature, max_tokens):
         super().__init__(model_name, temperature, max_tokens)
-        self.client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+        self.client = OpenAI(api_key=os.environ.get("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"))
 
     def create_prompt(self, system_prompt, few_shot_examples, question):
         messages = []
